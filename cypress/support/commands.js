@@ -24,8 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('Carregamento', () => {
+Cypress.Commands.add('CarregamentoGrande', () => {
   cy.get('#statusModalShow > .ui-dialog-titlebar', { timeout: 20000 })
     .should('not.be.visible');
-    cy.wait(20000); // Espera 5 segundo para garantir que o carregamento foi concluído
+    cy.wait(20000); // Espera 20 segundo para garantir que o carregamento foi concluído
+});
+Cypress.Commands.add('CarregamentoCurto', () => {
+  cy.get('#statusModalShow > .ui-dialog-titlebar', { timeout: 5000 })
+    .should('not.be.visible');
+    cy.wait(5000); // Espera 5 segundo para garantir que o carregamento foi concluído
 });
